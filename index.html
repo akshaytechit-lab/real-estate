@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DreamHomes Real Estate</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 15px 40px;
+        }
+
+        header h1 {
+            margin-bottom: 5px;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            margin-right: 15px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            border-left: 4px solid #e67e22;
+            padding-left: 8px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        /* Search filters */
+        .filters {
+            background: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .filters form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filters label {
+            font-size: 13px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .filters select,
+        .filters input {
+            padding: 5px;
+            width: 180px;
+        }
+
+        .filters button {
+            padding: 8px 16px;
+            background: #e67e22;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 18px;
+        }
+
+        .filters button:hover {
+            background: #d35400;
+        }
+
+        /* Property listings */
+        .property-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .property-card {
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            flex: 1 1 300px;
+        }
+
+        .property-image {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .property-details {
+            padding: 10px 12px;
+        }
+
+        .property-details h3 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .price {
+            color: #27ae60;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        /* Inquiry form */
+        form.inquiry-form {
+            background: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+
+        form.inquiry-form div {
+            margin-bottom: 10px;
+        }
+
+        form.inquiry-form label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        form.inquiry-form input,
+        form.inquiry-form textarea,
+        form.inquiry-form select {
+            width: 100%;
+            padding: 7px;
+        }
+
+        form.inquiry-form button {
+            padding: 8px 18px;
+            background: #2980b9;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form.inquiry-form button:hover {
+            background: #1f6390;
+        }
+
+        footer {
+            text-align: center;
+            padding: 12px;
+            background: #2c3e50;
+            color: #ecf0f1;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .filters form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>DreamHomes Real Estate</h1>
+    <p>Your trusted partner for buying and selling properties.</p>
+    <nav>
+        <a href="#search">Search</a>
+        <a href="#listings">Listings</a>
+        <a href="#inquiry">Inquiry</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- Search Filters -->
+    <section id="search">
+        <h2>Search Properties</h2>
+        <div class="filters">
+            <form>
+                <div>
+                    <label for="location">Location</label>
+                    <select id="location" name="location">
+                        <option value="">Any</option>
+                        <option>Hyderabad</option>
+                        <option>Bengaluru</option>
+                        <option>Mumbai</option>
+                        <option>Delhi</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="type">Property Type</label>
+                    <select id="type" name="type">
+                        <option value="">Any</option>
+                        <option>Apartment</option>
+                        <option>Villa</option>
+                        <option>Plot</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="minprice">Min Price (₹)</label>
+                    <input type="number" id="minprice" name="minprice" placeholder="2000000">
+                </div>
+                <div>
+                    <label for="maxprice">Max Price (₹)</label>
+                    <input type="number" id="maxprice" name="maxprice" placeholder="10000000">
+                </div>
+                <div>
+                    <button type="button">Search</button>
+                </div>
+            </form>
+            <p style="font-size:12px;margin-top:8px;">Note: This is a front-end demo. Actual filtering needs back-end or JavaScript.</p>
+        </div>
+    </section>
+
+    <!-- Property Listings -->
+    <section id="listings">
+        <h2>Featured Properties</h2>
+        <div class="property-grid">
+
+            <div class="property-card">
+                <div class="property-image" style="background-image:url('https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg');"></div>
+                <div class="property-details">
+                    <h3>3 BHK Apartment</h3>
+                    <p class="price">₹75,00,000</p>
+                    <p class="meta">Hyderabad · 1450 sq.ft · 3 Bed · 2 Bath</p>
+                    <p>Modern apartment in a gated community with clubhouse and gym.</p>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image" style="background-image:url('https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg');"></div>
+                <div class="property-details">
+                    <h3>Luxury Villa</h3>
+                    <p class="price">₹1,90,00,000</p>
+                    <p class="meta">Bengaluru · 2800 sq.ft · 4 Bed · 4 Bath</p>
+                    <p>Spacious villa with private garden, parking, and security.</p>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image" style="background-image:url('https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg');"></div>
+                <div class="property-details">
+                    <h3>Residential Plot</h3>
+                    <p class="price">₹55,00,000</p>
+                    <p class="meta">Mumbai · 1200 sq.ft · East facing</p>
+                    <p>Prime location plot suitable for independent house construction.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Inquiry Form -->
+    <section id="inquiry">
+        <h2>Inquiry Form</h2>
+        <p>Interested in any property? Send us your details and we will contact you soon.</p>
+        <form class="inquiry-form">
+            <div>
+                <label for="name">Full Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+            <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="+91-XXXXXXXXXX" required>
+            </div>
+            <div>
+                <label for="property">Property of Interest</label>
+                <select id="property" name="property">
+                    <option>3 BHK Apartment - Hyderabad</option>
+                    <option>Luxury Villa - Bengaluru</option>
+                    <option>Residential Plot - Mumbai</option>
+                    <option>Other / Not sure</option>
+                </select>
+            </div>
+            <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us your requirements"></textarea>
+            </div>
+            <button type="submit">Submit Inquiry</button>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    &copy; 2025 DreamHomes Real Estate. All rights reserved.
+</footer>
+
+</body>
+</html>
